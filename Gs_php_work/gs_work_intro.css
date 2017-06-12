@@ -1,0 +1,21 @@
+body {
+  background-color:#0d265d;
+}
+
+
+ p {
+    color: white;
+     text-align: center;
+}
+
+.txt_wrap{
+    
+    margin-top: 10em;
+    
+}
+
+
+.btn_wrap{
+    text-align: center;
+    margin-top: 20em;
+}

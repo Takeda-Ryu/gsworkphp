@@ -1,0 +1,48 @@
+body {
+  background-color:#404040;
+}
+
+.q_wrapper{
+    text-align: center;
+}
+.rd_1wrap,.rd_2wrap,.rd_3wrap{
+    
+    margin: 3em 0em;
+}
+
+.q1_q{
+    font-size: 2em;
+}
+
+p{
+    color: white;
+}
+
+input{
+    
+}
+
+
+form p {
+    color: white;
+    text-align: center;
+}
+
+
+.q1,.q2,.q3{
+    margin: 2em;
+    margin-top: 4em;
+    
+   
+    
+}
+
+.submit{
+    
+    text-align: center;
+}
+
+
+
+    
+    
