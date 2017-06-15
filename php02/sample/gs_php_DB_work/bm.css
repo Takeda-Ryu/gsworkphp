@@ -1,0 +1,45 @@
+body {
+	background-color: #626e79;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+	font-size: 4em;
+}
+
+.form_wrap {
+	text-align: center;
+}
+
+.search {
+	text-align: center;
+	margin: 5em;
+}
+
+#rst {
+	color: #ffffff;
+	/*	text-align: center;*/
+	margin: 2em 5em 3em 5em;
+	border: solid 0.01px;
+	border-color: rgba(255, 255, 255, 0.22);
+	/*	transform: rotate(90deg);*/
+	-webkit-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+/*
+	direction: rtl;
+	unicode-bidi: bidi-override;
+*/
+}
+
+form p {
+	color: white;
+}
+
+#book{
+	background-color: #806c50;
+	border: solid 0.05em;
+	border-color: #4d4130;
+	border-radius: 1em;
+}
