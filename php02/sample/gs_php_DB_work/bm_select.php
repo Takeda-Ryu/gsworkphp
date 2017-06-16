@@ -13,7 +13,7 @@ if(!isset($_POST["search"]) || $_POST["search"]==""){
 
 //1.  DB接続します
 try {
-  $pdo = new PDO('mysql:dbname=gs＿db;charset=utf8;host=localhost','root','');
+  $pdo = new PDO('mysql:dbname=*********;charset=utf8;host=************','********','*************');
 } catch (PDOException $e) {
   exit('DbConnectError:'.$e->getMessage());
 }
