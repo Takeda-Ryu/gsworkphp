@@ -1,0 +1,1 @@
+INSERT INTO gs_an_table(id,name,email,naiyou,indate)VALUES(NULL,'kawauchi','test1@test4','C',sysdate());
