@@ -9,28 +9,47 @@ if(
   exit('ParamError');
 }
 
+session_start();
+
 //1. POSTデータ取得
-$name      = $_POST["name"];
+$name     = $_POST["name"];
 // $email     = $_POST["email"];
-$naiyou    = $_POST["naiyou"];
+$naiyou   = $_POST["naiyou"];
+
+$uniID    = $_POST["uniId"];
+
+$image    = $_SESSION["image_name"];
+
+
+$_SESSION["uniID"] = $uniID;
 // $star_rate = $_POST["star_rate"];
 
+// //2. DB接続functionから呼び出し(エラー処理追加)
 
-//2. DB接続します(エラー処理追加)
-try {
-  $pdo = new PDO('mysql:dbname=gs＿db;charset=utf8;host=localhost','root','');
-} catch (PDOException $e) {
-  exit('DbConnectError:'.$e->getMessage());
-}
+include('functions.php');
+
+$pdo = db_con();
+
+
+// //2. DB接続します(エラー処理追加)
+// try {
+//   $pdo = new PDO('mysql:dbname=gs＿db;charset=utf8;host=localhost','root','');
+// } catch (PDOException $e) {
+//   exit('DbConnectError:'.$e->getMessage());
+// }
 
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("INSERT INTO gs_an_table(id, name,  naiyou,
-indate )VALUES(NULL, :a1,  :a2,  sysdate())");
-$stmt->bindValue(':a1', $name,   PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt = $pdo->prepare("INSERT INTO gs_an_table(id, user_id, name,  naiyou, image,
+indate )VALUES(NULL,  :user_id, :name, :naiyou, :image,  sysdate())");
+$stmt->bindValue(':user_id', $uniID,   PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
 // $stmt->bindValue(':a2', $email,  PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
-$stmt->bindValue(':a2', $naiyou, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':name', $name, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
 // $stmt->bindValue(':a4', $star_rate, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
+$stmt->bindValue(':naiyou', $naiyou, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+
+$stmt->bindValue(':image', $image, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
+
 $status = $stmt->execute();
 
 //４．データ登録処理後

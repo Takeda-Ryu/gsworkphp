@@ -1,8 +1,14 @@
 
+<?php
 
+// session_start();
 
+session_start();
+// echo  $_SESSION["uniID"];
 
+$view = $_SESSION["image_name"];
 
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,22 +19,22 @@
   <link rel="stylesheet" href="css/index.css">
 
 
-  <link rel="stylesheet" href="star_rate/jquery.rateyo.min.css"/>
+  <!-- <link rel="stylesheet" href="star_rate/jquery.rateyo.min.css"/> -->
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="library/jquery-3.2.1.min.js"></script>
 <!--  <script src="library/jquery-emojiarea-master/jquery.emojiarea.js"></script>-->
 
 
 <!--  jQuery UI-->
-  <link type="text/css" rel="stylesheet"
+  <!-- <link type="text/css" rel="stylesheet"
   href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
 <script type="text/javascript"
-  src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+  src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script> -->
  <!--  jQuery UI-->
-<script src="js/index.js"></script>
+<!-- <script src="js/index.js"></script> -->
 
 <!-- rete yo本体 -->
-<script type="text/javascript" src="star_rate/jquery.rateyo.min.js"></script>
+<!-- <script type="text/javascript" src="star_rate/jquery.rateyo.min.js"></script> -->
 
 
 
@@ -49,7 +55,7 @@
 
 <!-- Main[Start] -->
 <div id="img2" >
-<img class="animated bounce" src="images/Turtle_Emoji.png" alt="">
+<img class="animated bounce" src="images/<?=$view?>" alt="">
 </div>
 
 

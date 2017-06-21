@@ -6,12 +6,11 @@ $id     = $_POST["id"];
 // $naiyou = $_POST["naiyou"];
 $star_rate = $_POST["star_rate"];
 
-//2.DB接続など
-try {
-  $pdo = new PDO('mysql:dbname=gs＿db;charset=utf8;host=localhost','root','');
-} catch (PDOException $e) {
-  exit('データベースに接続できませんでした。'.$e->getMessage());
-}
+// //2. DB接続functionから呼び出し(エラー処理追加)
+
+include('functions.php');
+
+$pdo = db_con();
 
 //3.UPDATE gs_an_table SET ....; で更新(bindValue)
 //　基本的にinsert.phpの処理の流れです。

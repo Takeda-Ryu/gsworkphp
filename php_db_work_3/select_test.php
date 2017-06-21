@@ -114,7 +114,7 @@ if( $_SESSION["id"] == h($result["user_id"]) ){
     $view .= "<span class='star_rate'>";
     $view .= '<div class="rateYo'.h($result["star_rate"]).'"></div>';
 	  $view .= "</span>";
-    $view .=              '
+    $star_rate .=              '
 
                   <script>
                   $(function(){
@@ -147,9 +147,13 @@ if( $_SESSION["id"] == h($result["user_id"]) ){
 
     $view .= '</div>';
     $view .= "</p>";
+
+
+
+
+
   }
-
-
+    $_SESSION["script_star"] = $script_star;//scriptの出力だけ別に吐き出してみる
 }
 
 
@@ -171,7 +175,10 @@ if( $_SESSION["id"] == h($result["user_id"]) ){
       <script src="library/jquery-3.2.1.min.js"></script>
   <!-- rete yo本体 -->
       <script type="text/javascript" src="star_rate/jquery.rateyo.min.js"></script>
-      <!-- <script type="text/javascript" src="js/index2js.php"></script> -->
+
+    <script type="text/javascript" src="js/index2js.php"></script>
+
+
 
 	</head>
 

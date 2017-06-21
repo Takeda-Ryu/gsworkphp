@@ -1,12 +1,11 @@
 <?php
 $id = $_GET["id"];
 
-//2.DB接続など
-try {
-  $pdo = new PDO('mysql:dbname=gs＿db;charset=utf8;host=localhost','root','');
-} catch (PDOException $e) {
-  exit('データベースに接続できませんでした。'.$e->getMessage());
-}
+// //2. DB接続functionから呼び出し(エラー処理追加)
+
+include('functions.php');
+
+$pdo = db_con();
 
 //3.SELECT * FROM gs_an_table WHERE id=***; を取得（bindValueを使用！）
 $stmt = $pdo->prepare("DELETE FROM gs_an_table WHERE id=:id");

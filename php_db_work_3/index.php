@@ -1,3 +1,52 @@
+<?php
+
+//0.外部ファイル読み込み
+include("functions.php");
+
+session_start();
+
+$view = $_SESSION["id"];
+
+
+$pdo = db_con();
+
+
+
+$stmt = $pdo->prepare("SELECT * FROM gs_image_table ORDER BY RAND() LIMIT 1 ");  //ランダムにランダムに一つだけ
+
+$status = $stmt->execute();
+
+if($status==false){
+
+    qerror($stmt);
+
+}else{
+
+
+  $result = $stmt->fetch();
+
+  $rslt   = $result["image"];
+
+  $_SESSION["known_img"] = $result["id"];
+
+  $_SESSION["image_name"] = $result["image"];
+
+
+  // $test = $_SESSION["image_name"];
+
+
+}
+
+
+
+ ?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,22 +56,18 @@
   <link rel="stylesheet" href="css/index.css">
 
 
-  <link rel="stylesheet" href="star_rate/jquery.rateyo.min.css"/>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="library/jquery-3.2.1.min.js"></script>
 <!--  <script src="library/jquery-emojiarea-master/jquery.emojiarea.js"></script>-->
 
 
-<!--  jQuery UI-->
-  <link type="text/css" rel="stylesheet"
+ <!-- jQuery UI-->
+  <!-- <link type="text/css" rel="stylesheet"
   href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
 <script type="text/javascript"
-  src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
- <!--  jQuery UI-->
-<script src="js/index.js"></script>
+  src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script> -->
+ <!--  jQuery UI -->
 
-<!-- rete yo本体 -->
-<script type="text/javascript" src="star_rate/jquery.rateyo.min.js"></script>
 
 
 
@@ -43,7 +88,7 @@
 
 <!-- Main[Start] -->
 <div id="img" >
-<img class="animated bounce" src="images/Turtle_Emoji.png" alt="">
+<img class="animated bounce" src="images/<?=$rslt?>" alt="">
 </div>
 
 
@@ -67,6 +112,7 @@
      <p>Reason why</p>
      <label><textArea name="naiyou" rows="4" cols="40"></textArea></label><br>
      <!-- <input id="star_rate" type="hidden" name="star_rate" value="3"> -->
+     <input type="hidden" name="uniId" value="<?=$view?>">
      <input type="submit" value="answer">
 
      </div>
@@ -76,7 +122,7 @@
 
 
 
-<div class="data_list"><a href="select.php">someone said...</a></div>
+<div class="data_list"><a href="logout.php">logout</a></div>
 <!-- Main[End] -->
 
 
