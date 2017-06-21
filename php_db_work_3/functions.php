@@ -3,17 +3,6 @@
 
 
 
-//DB接続関数（PDO）
-// function db_con(){
-//     try {
-//       $pdo = new PDO('mysql:dbname=ryutakeda_gs;charset=utf8;host=mysql612.db.sakura.ne.jp','ryutakeda','43-43-43');
-//     } catch (PDOException $e) {
-//       exit('データベースに接続できませんでした。'.$e->getMessage());
-//     }
-//     return $pdo;
-// }
-
-
 //DB接続関数（PDO） ///ローカル環境用
 function db_con(){
   $dbname='gs＿db';
