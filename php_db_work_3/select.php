@@ -34,10 +34,14 @@ if(isset($_POST["search"])){
 
   $stmt = $pdo->prepare("SELECT * FROM gs_an_table  ORDER BY indate DESC ");  //時間の新しい順に並ぶ
 
+
 }
 
 
-  $status = $stmt->execute();
+  $status  = $stmt->execute();
+
+  // $status2 = $stmt2->execute();
+
 
 
 
@@ -53,21 +57,69 @@ if($status==false){
 
 
 
-  //Selectデータの数だけ自動でループしてくれる
-  while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
+    //Selectデータの数だけ自動でループしてくれる
+    while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+
+
+
+     //共通のif文の条件  ログインしているユーザーが投稿したものだけ
+
+    $branch =  $_SESSION["id"] == h($result["user_id"]);
+
+
+    if($branch){
+    //
+    //               function match_ans(){
+    //
+    //               $that_image = h($result["image"]);  //自分が回答した画像
+    //
+    //               $stmt       = $pdo->prepare("SELECT * FROM gs_an_table WHERE image LIKE $that_image "); //自分が選択した画像と同じものをデータベースから全て
+    //
+    //               $status     = $stmt->execute();
+    //
+    //
+    //               if($status==false){
+    //
+    //                     qerror($stmt);
+    //
+    //                                 }else{
+    //
+    //                                         $result = $stmt->fetch();
+    //
+    //
+    //                                      }
+    //
+    //                                         return $result;
+    //
+    //
+    //                                   }
+    //
+    //
+    //
+    //
+    //
+    // $result = function match_ans();
+    //
+
+
+
+
+
     $view .= '<p>';
     $view .= '<div class="inner-wrap">';
 
     $view .= '<a  href="detail.php?id='.h($result["id"]).'">';
     $view .= '<span class="name">';
     $view .= h($result["name"]);
-	  $view .= "</span>";
+    $view .= "</span>";
     $view .= '</a>';
     $view .= '  ';
 
-//ログインしているユーザーが投稿したものだけ削除できるようにする
 
-if( $_SESSION["id"] == h($result["user_id"]) ){
+
+
+    //ログインしているユーザーが投稿したものだけ削除できるようにする
 
     $view .= '<a href="delete.php?id='.h($result["id"]).'">';
 	  $view .= "<span class='dele_btn'>";
@@ -76,8 +128,9 @@ if( $_SESSION["id"] == h($result["user_id"]) ){
     $view .= '</a>';
 
 
-//管理者は全て削除できる
-  }else if($_SESSION["kanri_flg"]=="1"){
+    //管理者は全て削除できる
+
+    }else if($_SESSION["kanri_flg"]=="1"){
 
     $view .= '<a href="delete.php?id='.h($result["id"]).'">';
     $view .= "<span class='dele_btn'>";
@@ -86,6 +139,13 @@ if( $_SESSION["id"] == h($result["user_id"]) ){
     $view .= '</a>';
 
 }
+
+
+
+
+if( $branch ){
+
+    // $result = function match_ans();
 
     $view .= '<a  href="detail.php?id='.h($result["id"]).'">';
 	  $view .= "<span class='edit_btn'>";
@@ -147,10 +207,13 @@ if( $_SESSION["id"] == h($result["user_id"]) ){
 
     $view .= '</div>';
     $view .= "</p>";
-  }
+
+  }//if2
+
+  }//while
 
 
-}
+} //else
 
 
 ?>

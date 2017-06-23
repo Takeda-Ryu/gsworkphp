@@ -6,6 +6,8 @@ body{
 
 #img{
 	text-align: center;
+  filter: blur(28px);
+
 
 }
 
