@@ -1,15 +1,6 @@
 <?php
 /** 共通で使うものを別ファイルにしておきましょう。*/
 
-//DB接続関数（PDO）
-// function db_con(){
-//     try {
-//       $pdo = new PDO('mysql:dbname=ryutakeda_gs;charset=utf8;host=mysql612.db.sakura.ne.jp','ryutakeda','43-43-43');
-//     } catch (PDOException $e) {
-//       exit('データベースに接続できませんでした。'.$e->getMessage());
-//     }
-//     return $pdo;
-// }
 
 
 
@@ -23,6 +14,8 @@ function db_con(){
   }
   return $pdo;
 }
+
+
 
 //SQL処理エラー
 function qerror($stmt){
@@ -88,6 +81,18 @@ function logout(){
       header("Location: login.php");
       exit();
 
+}
+
+
+
+
+//悪意のコードの実行を防ぐため
+
+
+
+
+function json_safe_encode($data){
+    return json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
 }
 
 
