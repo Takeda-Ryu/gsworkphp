@@ -174,6 +174,10 @@ if( $branch ){
     $view .= "<span class='star_rate'>";
     $view .= '<div class="rateYo'.h($result["star_rate"]).'"></div>';
 	  $view .= "</span>";
+
+//外部化するとしたら配列化してデータ属性を使い、jsに配列を渡してfor文で個数分回す。
+
+
     $view .=              '
 
                   <script>
@@ -251,6 +255,9 @@ if( $branch ){
 
 
 		</header>
+
+
+
 		<!-- Head[End] -->
 
 		<!-- Main[Start] -->

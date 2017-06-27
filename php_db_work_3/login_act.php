@@ -28,7 +28,7 @@ if( password_verify($lpw, $val["lpw"]) ){
   $_SESSION["chk_ssid"]  = session_id();
   $_SESSION["kanri_flg"] = $val['kanri_flg'];
   $_SESSION["name"]      = $val['name'];
-  $_SESSION["id"]          = $val['id'];
+  $_SESSION["id"]        = $val['id'];
 
   header("Location: index.php");
 }else{

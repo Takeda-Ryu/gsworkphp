@@ -10,6 +10,8 @@
 
   <body>
 
+    <div class="select"><a id="login" href="login.php">sign in</a></div>
+
 <!-- フォーム部分 ------------------------------------------------------------------------------------------->
 
     <div id="drag" class="form_wrap">

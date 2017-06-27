@@ -1,7 +1,29 @@
+
+
+<?php header('Content-Type: text/css; charset=utf-8'); ?>
+@charset "UTF-8";
+
+
+
+
 body{
 
 	background:  radial-gradient(#fae3ff, #c8fffb);
   height: 1200px;
+}
+
+.select{
+  display: inline-block;
+
+}
+
+.graph{
+
+	display: inline-block;
+	position: fixed;
+	right: 1em;
+
+
 }
 
 #img{
@@ -21,6 +43,42 @@ img{
 	padding-top: 2em;
 	width: 30%;
 	height: 30%;
+
+
+}
+
+div .color1{
+
+  width: 30px;
+
+  height: 30px;
+
+  background-color:#<?= $color1 ?>;
+
+
+
+}
+
+div .color2{
+
+  width: 30px;
+
+  height: 30px;
+
+  background-color:#<?= $color2 ?>;
+
+
+
+}
+
+div .color3{
+
+  width: 30px;
+
+  height: 30px;
+
+  background-color:#<?= $color3 ?>;
+
 
 
 }
@@ -96,7 +154,7 @@ a{
 			/*appearance: none;*/
 			color: white;
 
-			
+
 
 }
 

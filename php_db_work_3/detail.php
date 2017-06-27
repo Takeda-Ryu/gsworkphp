@@ -1,7 +1,7 @@
 <?php
 
 
-
+session_start();
 
 
 //1.GETでidを取得
@@ -26,10 +26,18 @@ if($status==false){
   exit("ErrorQuery:".$error[2]);
 }else{
 
-  $result = $stmt->fetch(); //$result["id"];
+  $result =  $stmt->fetch(); //$result["id"];
 
-  $image = $result["image"];
+  $image  =  $result["image"];
+
+  $naiyou =  $result["naiyou"];
+
+  $name   =  $result["name"];
 }
+
+$_SESSION["naiyou"] = $naiyou;
+
+$_SESSION["name"]   = $name;
 
 
 //画像解析ライブラリ
@@ -48,19 +56,25 @@ $colors=$ex->Get_Color();
 
 $colors_key=array_keys($colors);
 
-$color1 = $colors_key[0];
+$color1 = $colors_key[1];
 
-$color2 = $colors_key[1];
+$color2 = $colors_key[2];
 
 $color3 = $colors_key[3];
 
-// session_start();
-//
-// $_SESSION["color1"] = $color1;
-//
-// $_SESSION["color1"] = $color2;
-//
-// $_SESSION["color1"] = $color3;
+$color4 = $colors_key[4];
+
+
+
+$_SESSION["color1"] = $color1;
+
+$_SESSION["color2"] = $color2;
+
+$_SESSION["color3"] = $color3;
+
+$_SESSION["color4"] = $color4;
+
+
 
 
 
@@ -100,7 +114,8 @@ $color3 = $colors_key[3];
 <!-- Head[Start] -->
 <header>
 
-        <div class="navbar-header"><a class="navbar-brand" href="select.php">someone said...</a></div>
+        <div class="select"><a class="navbar-brand" href="select.php">someone said...</a></div>
+        <div class="graph"><a class="navbar-brand" href="analysis.php">graph</a></div>
 
 </header>
 

@@ -55,9 +55,12 @@ if($status==false){
 <!--  <link rel="stylesheet" href="library/jquery-emojiarea-master/jquery.emojiarea.css">-->
   <link rel="stylesheet" href="css/index.css">
 
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
 
 
   <script src="library/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 <!--  <script src="library/jquery-emojiarea-master/jquery.emojiarea.js"></script>-->
 
 
@@ -75,13 +78,30 @@ if($status==false){
  </head>
 <body>
 
+
+<div class="content-wrap">
+
+
 <!-- Head[Start] -->
 <header>
+
+    <div class="header-inner">
+
+        <p>Hills Like White Elephant</p>
+
+        <div class="bar_wrapo">
+            <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+        </div>
+
+    </div>
 
 
 
 
 </header>
+
+
+
 <!-- Head[End] -->
 
 
@@ -124,6 +144,47 @@ if($status==false){
 
 <div class="data_list"><a href="logout.php">logout</a></div>
 <!-- Main[End] -->
+
+
+
+</div>
+
+<!-- naviモーダル//////////////////////////////////////////////////////// -->
+
+<div id="navi_modal" class="off drag">
+
+    <div class="navi-inner">
+
+        <ul>
+
+            <li>
+                <p id="about"><a href="#">About</a></p>
+            </li>
+
+            <li>
+                <p id="sign_up"><a href="start.php">sign up</a></p>
+            </li>
+
+            <li>
+                <p id="sign_in"><a href="login.php">sign in</a></p>
+            </li>
+
+            <li>
+                <p id="logout"><a href="logout.php">logout</a></p>
+            </li>
+
+            <li>
+                <p id="list"><a href="select.php">someone said...</a></p>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+<div class="content-wrap">
+
 
 
 </body>

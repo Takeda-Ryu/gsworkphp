@@ -5,10 +5,25 @@ $(function(){
   //show_btn/////////////////////////////////////////////////////////////////////
 
 
+let bt = $(".show_btn");
 
-  $(".show_btn").on("click",function(){
+
+  bt.on("click",function(){
 
           $("#img").toggleClass("blur");
+
+          if($("#img").hasClass("blur")){
+
+                bt.html("show");
+
+
+          }else {
+                bt.html("hide");
+
+          }
+
+
+
 
 
 
