@@ -32,7 +32,48 @@ if($status==false){
 }
 
 
-?>
+//画像解析ライブラリ
+
+
+
+
+
+include_once("library/paletter-master/colors.inc.php");
+
+
+
+$ex=new GetMostCommonColors();
+$ex->image="images/".$image;
+$colors=$ex->Get_Color();
+
+$colors_key=array_keys($colors);
+
+$color1 = $colors_key[0];
+
+$color2 = $colors_key[1];
+
+$color3 = $colors_key[3];
+
+// session_start();
+//
+// $_SESSION["color1"] = $color1;
+//
+// $_SESSION["color1"] = $color2;
+//
+// $_SESSION["color1"] = $color3;
+
+
+
+
+
+
+
+
+
+
+ ?>
+
+
 
 
 <!-- //HTML///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -42,23 +83,31 @@ if($status==false){
 
         <meta charset="UTF-8">
         <title>POSTデータ登録</title>
-        <link rel="stylesheet" href="css/detail.css">
+        <link rel="stylesheet" href="css/detail_css.php">
         <link rel="stylesheet" href="star_rate/jquery.rateyo.min.css"/>
         <script src="library/jquery-3.2.1.min.js"></script>
         <!-- rete yo本体 -->
         <script type="text/javascript" src="star_rate/jquery.rateyo.min.js"></script>
-        <script src="js/index.js"></script>
+        <script type="text/javascript" src="js/detail.js"></script>
+        <script src="js/index2.js"></script>
 
 </head>
 
 
 <body>
+
+
 <!-- Head[Start] -->
 <header>
 
         <div class="navbar-header"><a class="navbar-brand" href="select.php">someone said...</a></div>
 
 </header>
+
+<!-- <div class="color1" ><br>
+<div class="color2"><br>
+<div class="color3"> -->
+
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
@@ -68,9 +117,10 @@ if($status==false){
 <form method="post" action="update.php">
 
 
-               <div id="img">
+               <div class="blur" id="img">
                <img class="animated bounce" src="images/<?=$image?>" alt="">
                </div>
+               <div class="show_btn_wrap"><button class="show_btn" type="button" name="button">show</button></div>
 
 
                <div class="hash">This is...<input type="text" name="name" value="<?=$result["name"]?>" readonly="readonly"><br>
