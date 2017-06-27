@@ -68,7 +68,7 @@ if($status==false){
     $branch =  $_SESSION["id"] == h($result["user_id"]);
 
 
-    if($branch){
+
     //
     //               function match_ans(){
     //
@@ -117,7 +117,7 @@ if($status==false){
     $view .= '  ';
 
 
-
+if($branch && !$_SESSION["kanri_flg"]=="1"){
 
     //ログインしているユーザーが投稿したものだけ削除できるようにする
 
@@ -143,7 +143,7 @@ if($status==false){
 
 
 
-if( $branch ){
+// if( $branch ){
 
     // $result = function match_ans();
 
@@ -212,7 +212,7 @@ if( $branch ){
     $view .= '</div>';
     $view .= "</p>";
 
-  }//if2
+  // }//if2
 
   }//while
 
