@@ -57,6 +57,10 @@ if($status==false){
 
 
 
+  $star = array();
+
+
+
     //Selectデータの数だけ自動でループしてくれる
     while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
 
@@ -177,36 +181,46 @@ if($branch && !$_SESSION["kanri_flg"]=="1"){
 
 //外部化するとしたら配列化してデータ属性を使い、jsに配列を渡してfor文で個数分回す。
 
+    if(h($result["star_rate"])==null){
 
-    $view .=              '
-
-                  <script>
-                  $(function(){
-
-                  $(".rateYo'.h($result["star_rate"]).'").rateYo({
-
-                  starWidth: "10px",
-                  readOnly: true,
-                  rating: '.h($result["star_rate"]).'
-
-                  });
+    $star[] .= 0;
 
 
-                  // 色変更
-                  $(".rateYo'.h($result["star_rate"]).'").rateYo({
-                  ratedFill: "#fff16f"
-                  });
+  }else{
 
-                  $(".rateYo'.h($result["star_rate"]).'").rateYo({
-                  numStars: 5
-                  });
+      $star[] .=  h($result["star_rate"]);
 
-                              });
-                  </script>
+  }
 
 
-
-                          ';
+    // $view   .=              '
+    //
+    //               <script>
+    //               $(function(){
+    //               $(".rateYo'.h($result["star_rate"]).'").rateYo({
+    //
+    //               starWidth: "10px",
+    //               readOnly: true,
+    //               rating: '.h($result["star_rate"]).'
+    //
+    //               });
+    //
+    //
+    //               // 色変更
+    //               $(".rateYo'.h($result["star_rate"]).'").rateYo({
+    //               ratedFill: "#fff16f"
+    //               });
+    //
+    //               $(".rateYo'.h($result["star_rate"]).'").rateYo({
+    //               numStars: 5
+    //               });
+    //
+    //                           });
+    //               </script>
+    //
+    //
+    //
+    //                       ';
 
 
     $view .= '</div>';
@@ -219,6 +233,13 @@ if($branch && !$_SESSION["kanri_flg"]=="1"){
 
 } //else
 
+
+ $_SESSION["array"] = $star;
+
+
+ $star_rate = $star;
+
+// print_r($_SESSION["array"]);
 
 ?>
 
@@ -239,6 +260,12 @@ if($branch && !$_SESSION["kanri_flg"]=="1"){
   <!-- rete yo本体 -->
       <script type="text/javascript" src="star_rate/jquery.rateyo.min.js"></script>
       <!-- <script type="text/javascript" src="js/index2js.php"></script> -->
+      <script id="script" src="js/select.js"
+
+         data-star    =  '<?=json_safe_encode($star);?>'
+
+
+      ></script>
 
 	</head>
 
